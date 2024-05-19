@@ -2,8 +2,8 @@ FROM mcr.microsoft.com/devcontainers/cpp:1-debian-12
 
 ADD sources.list /etc/apt/sources.list
 #ADD sources.core.list /etc/apt/sources.list
-#ADD pip.conf /etc/pip.conf
 RUN rm -fr /etc/apt/sources.list.d/*
+ADD pip.conf /etc/pip.conf
 RUN apt update && apt install -y --no-install-recommends python3 python3-pip vim
 #ADD sources.list /etc/apt/sources.list
 
