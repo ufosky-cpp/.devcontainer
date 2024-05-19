@@ -1,7 +1,13 @@
 FROM mcr.microsoft.com/devcontainers/cpp:1-debian-12
 
 ADD sources.list /etc/apt/sources.list
+#ADD sources.core.list /etc/apt/sources.list
+#ADD pip.conf /etc/pip.conf
 RUN rm -fr /etc/apt/sources.list.d/*
+RUN apt update && apt install -y --no-install-recommends python3 python3-pip vim
+#ADD sources.list /etc/apt/sources.list
+
+ RUN pip config set global.index-url "https://mirrors.aliyun.com/pypi/simple/" && pip config set global.trusted-host "mirrors.aliyun.com"
 # RUN apt update
 
 ARG REINSTALL_CMAKE_VERSION_FROM_SOURCE="none"
